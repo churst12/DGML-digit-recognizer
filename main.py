@@ -12,11 +12,11 @@ features_train, labels_train, features_test, labels_test = process_train_data(tr
 # print np.array2string(first_row, max_line_width=np.inf)
 # print features_test
 
-print "start training"
-clf = RandomForestClassifier()
+print ("start training")
+clf = RandomForestClassifier(n_estimators=100)
 clf.fit(features_train, labels_train)
 
-print [clf.predict(features_test[0:1]), labels_test[0:1]]
+print ([clf.predict(features_test[0:1]), labels_test[0:1]])
 
-print "start calculate score"
-print clf.score(features_test, labels_test)
+print ("start calculate score")
+print (clf.score(features_test, labels_test))
