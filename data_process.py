@@ -1,5 +1,12 @@
-def process_train_data(data):
-  labels = data['label']
-  features = data.drop('label', axis=1)
+import numpy as np
 
-  return features[0:37800], labels[0:37800], features[37801:42000], labels[37801:42000]
+def process_train_data(frame):
+  # convert to np array
+  array = np.array(frame)
+
+  # split feature and label
+  features, labels = array[:, 1:], array[:, 0]
+
+  # spit data 80:20
+  from sklearn.model_selection import train_test_split
+  return train_test_split(features, labels, test_size=0.2)
